@@ -25,48 +25,55 @@ const Services = () => {
       {/* Services Grid */}
       <section className="py-20 bg-white">
         <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 gap-8 lg:grid-cols-2">
             {services.map((service) => {
               const IconComponent = require('lucide-react')[service.icon];
               return (
-                <Card key={service.id} className="group overflow-hidden border border-slate-200 bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-blue-300 hover:shadow-2xl">
-                  <CardHeader>
-                    <div className="mb-4 flex items-start justify-between">
-                      <div className="w-16 h-16 rounded-2xl bg-blue-100 flex items-center justify-center group-hover:bg-blue-900 transition-colors duration-300">
-                        <IconComponent className="w-8 h-8 text-blue-900 group-hover:text-white transition-colors duration-300" />
+                <Card
+                  key={service.id}
+                  className="group flex h-full flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-blue-300 hover:shadow-xl"
+                >
+                  <CardHeader className="pb-5">
+                    <div className="mb-6 flex items-start justify-between">
+                      <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-blue-100 transition-colors duration-300 group-hover:bg-blue-900">
+                        <IconComponent className="h-8 w-8 text-blue-900 transition-colors duration-300 group-hover:text-white" />
                       </div>
                     </div>
-                    <CardTitle className="text-2xl font-bold text-gray-900">
+                    <CardTitle className="text-2xl font-bold leading-tight text-gray-900">
                       {service.title}
                     </CardTitle>
                   </CardHeader>
-                  <CardContent>
-                    <p className="text-gray-600 mb-6 text-lg">
+                  <CardContent className="flex flex-1 flex-col pt-0">
+                    <p className="mb-8 text-lg leading-9 text-gray-600">
                       {service.description}
                     </p>
                     
-                    <div className="space-y-3">
-                      <h4 className="font-semibold text-gray-900 text-sm uppercase tracking-wide">
+                    <div className="flex-1 space-y-4">
+                      <h4 className="text-sm font-semibold uppercase tracking-wide text-gray-900">
                         What's Included:
                       </h4>
-                      <ul className="space-y-2">
+                      <ul className="space-y-3">
                         {service.details.map((detail, idx) => (
-                          <li key={idx} className="flex items-start">
-                            <CheckCircle className="w-5 h-5 text-green-600 mr-3 mt-0.5 flex-shrink-0" />
-                            <span className="text-gray-700">{detail}</span>
+                          <li key={idx} className="flex items-start text-lg">
+                            <CheckCircle className="mr-3 mt-0.5 h-5 w-5 flex-shrink-0 text-green-600" />
+                            <span className="leading-8 text-gray-700">{detail}</span>
                           </li>
                         ))}
                       </ul>
                     </div>
 
-                    <div className="mt-6 pt-6 border-t border-gray-200 space-y-3">
-                      <Button asChild className="w-full bg-blue-900 hover:bg-blue-800 text-white">
+                    <div className="mt-8 space-y-3 border-t border-gray-200 pt-6">
+                      <Button asChild className="h-11 w-full rounded-md bg-blue-900 text-white hover:bg-blue-800">
                         <Link to={`/services/${service.slug}`}>
                           View {service.title}
                           <MoveRight className="ml-2 w-4 h-4" />
                         </Link>
                       </Button>
-                      <Button asChild variant="outline" className="w-full border-blue-200 text-blue-900 hover:bg-blue-50">
+                      <Button
+                        asChild
+                        variant="outline"
+                        className="h-11 w-full rounded-md border-blue-200 text-blue-900 hover:bg-blue-50"
+                      >
                         <Link to="/quote" state={{ service: service.title }}>
                           Request Quote
                           <ArrowRight className="ml-2 w-4 h-4" />
