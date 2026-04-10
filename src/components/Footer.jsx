@@ -6,6 +6,9 @@ import { services } from '../data/mock';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
+  const scrollToPageTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
 
   return (
     <footer className="bg-gray-900 text-gray-300">
@@ -32,7 +35,7 @@ const Footer = () => {
             <h4 className="text-white font-semibold mb-4">Quick Links</h4>
             <ul className="space-y-2 text-sm">
               <li>
-                <Link to="/" className="hover:text-blue-400 transition-colors">
+                <Link to="/" onClick={scrollToPageTop} className="hover:text-blue-400 transition-colors">
                   Home
                 </Link>
               </li>
