@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Ship, Menu, X } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 import { Button } from './ui/button';
 
 const Header = () => {
@@ -10,7 +10,6 @@ const Header = () => {
   const navItems = [
     { name: 'Home', path: '/' },
     { name: 'Services', path: '/services' },
-    { name: 'Projects', path: '/projects' },
     { name: 'About', path: '/about' },
     { name: 'Contact', path: '/contact' }
   ];
@@ -18,17 +17,22 @@ const Header = () => {
   const isActive = (path) => location.pathname === path;
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm border-b border-gray-200">
+    <header className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm border-b border-slate-200">
       <div className="container mx-auto px-4">
-        <div className="flex items-center justify-between h-20">
-          {/* Logo */}
-          <Link to="/" className="flex items-center space-x-3">
-            <div className="w-12 h-12 bg-blue-900 rounded-lg flex items-center justify-center">
-              <Ship className="w-7 h-7 text-white" />
-            </div>
-            <div>
-              <h1 className="text-xl font-bold text-gray-900">NH Marine Services</h1>
-              <p className="text-xs text-gray-600">Pvt Limited</p>
+        <div className="flex items-center justify-between min-h-20 py-3">
+          <Link to="/" className="flex items-center gap-3 shrink-0">
+            <img
+              src="/logo.png"
+              alt="NH Marine Logo"
+              className="h-11 sm:h-12 w-auto object-contain"
+            />
+            <div className="leading-tight">
+              <p className="text-base sm:text-lg font-extrabold tracking-[0.08em] text-slate-900">
+                NH Marine Services
+              </p>
+              <p className="text-[11px] sm:text-xs uppercase tracking-[0.22em] text-slate-600">
+                Pvt. Ltd.
+              </p>
             </div>
           </Link>
 

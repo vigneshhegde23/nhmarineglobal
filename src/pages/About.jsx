@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { ArrowRight, Award, Users, Target, Globe } from 'lucide-react';
 import { Button } from '../components/ui/button';
 import { Card, CardContent } from '../components/ui/card';
-import { certifications, team } from '../data/mock';
+import { team } from '../data/mock';
 
 const About = () => {
   return (
@@ -16,7 +16,7 @@ const About = () => {
               About Us
             </h1>
             <p className="text-xl text-blue-100">
-              Leading the industry with professional marine surveying services since 2009
+              Leading the industry with professional marine surveying services
             </p>
           </div>
         </div>
@@ -32,13 +32,12 @@ const About = () => {
               </h2>
               <div className="space-y-4 text-lg text-gray-700">
                 <p>
-                  N&H Marine Services Pvt Limited is a leading provider of professional marine surveying and consultancy services. Since our establishment in 2009, we have built a reputation for delivering accurate, reliable, and timely surveys to the maritime industry.
+                  NH Marine is a growing marine services company committed to delivering reliable and efficient solutions to the maritime industry. While we are new to the field, our approach is built on strong technical understanding, attention to detail, and a clear focus on client requirements.                </p>
+                <p>
+                  We specialize in supporting vessel operations through coordinated service execution, timely response, and practical problem-solving. Our team works closely with clients to ensure that every task—whether routine or urgent—is handled with professionalism and accountability.
                 </p>
                 <p>
-                  Our team of highly qualified and experienced marine surveyors operates across 50+ countries, providing round-the-clock service to vessel owners, charterers, traders, and insurance companies worldwide.
-                </p>
-                <p>
-                  We are committed to maintaining the highest standards of professional conduct and technical excellence in all our operations, backed by ISO 9001:2015 certification and memberships in prestigious international organizations.
+                  At NH Marine, we prioritize clear communication, operational transparency, and consistent service quality. Our goal is to establish long-term relationships by delivering dependable support and continuously improving with every project we undertake.
                 </p>
               </div>
             </div>
@@ -107,70 +106,34 @@ const About = () => {
         </div>
       </section>
 
-      {/* Certifications */}
-      <section className="py-20 bg-white">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-              Certifications & Accreditations
-            </h2>
-            <p className="text-xl text-gray-600">
-              Recognized and certified by leading industry bodies
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {certifications.map((cert) => (
-              <Card key={cert.id} className="text-center hover:shadow-xl transition-all duration-300 border-2 hover:border-blue-600">
-                <CardContent className="p-6">
-                  <div className="w-20 h-20 bg-blue-900 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <Award className="w-10 h-10 text-white" />
-                  </div>
-                  <h3 className="text-lg font-bold text-gray-900 mb-2">
-                    {cert.name}
-                  </h3>
-                  <p className="text-sm text-gray-600">
-                    {cert.description}
-                  </p>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* Team */}
-      <section className="py-20 bg-gray-50">
+      <section className="py-20 bg-white">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
               Our Team
             </h2>
             <p className="text-xl text-gray-600">
-              Meet the experts behind our success
+              Meet the professionals behind NH Marine Services
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {team.map((member) => (
-              <Card key={member.id} className="text-center hover:shadow-xl transition-all duration-300">
-                <CardContent className="p-6">
-                  <div className="w-24 h-24 bg-gradient-to-br from-blue-600 to-blue-800 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <span className="text-3xl font-bold text-white">
-                      {member.name.split(' ').map(n => n[0]).join('')}
-                    </span>
+              <Card key={member.id} className="border border-slate-200 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl">
+                <CardContent className="p-8 text-center">
+                  <div className="mx-auto mb-6 h-48 w-48 overflow-hidden rounded-full border-4 border-blue-100 bg-slate-100 shadow-lg">
+                    <img
+                      src={member.image}
+                      alt={member.name}
+                      className="h-full w-full object-cover object-center"
+                    />
                   </div>
-                  <h3 className="text-xl font-bold text-gray-900 mb-2">
+                  <h3 className="text-2xl font-bold text-gray-900">
                     {member.name}
                   </h3>
-                  <p className="text-blue-900 font-semibold mb-2">
+                  <p className="mt-2 text-blue-900 font-semibold text-lg">
                     {member.position}
-                  </p>
-                  <p className="text-sm text-gray-600 mb-2">
-                    {member.experience}
-                  </p>
-                  <p className="text-xs text-gray-500">
-                    {member.qualifications}
                   </p>
                 </CardContent>
               </Card>

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, CheckCircle } from 'lucide-react';
+import { ArrowRight, CheckCircle, MoveRight } from 'lucide-react';
 import { Button } from '../components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '../components/ui/card';
 import { services } from '../data/mock';
@@ -29,13 +29,13 @@ const Services = () => {
             {services.map((service, index) => {
               const IconComponent = require('lucide-react')[service.icon];
               return (
-                <Card key={service.id} className="group hover:shadow-2xl transition-all duration-300 border-2 hover:border-blue-600">
+                <Card key={service.id} className="group overflow-hidden border border-slate-200 bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-blue-300 hover:shadow-2xl">
                   <CardHeader>
                     <div className="flex items-start justify-between mb-4">
-                      <div className="w-16 h-16 bg-blue-100 rounded-lg flex items-center justify-center group-hover:bg-blue-900 transition-colors duration-300">
+                      <div className="w-16 h-16 rounded-2xl bg-blue-100 flex items-center justify-center group-hover:bg-blue-900 transition-colors duration-300">
                         <IconComponent className="w-8 h-8 text-blue-900 group-hover:text-white transition-colors duration-300" />
                       </div>
-                      <span className="text-sm font-semibold text-blue-900 bg-blue-100 px-3 py-1 rounded-full">
+                      <span className="rounded-full bg-blue-50 px-3 py-1 text-sm font-semibold text-blue-900">
                         Service {index + 1}
                       </span>
                     </div>
@@ -62,10 +62,16 @@ const Services = () => {
                       </ul>
                     </div>
 
-                    <div className="mt-6 pt-6 border-t border-gray-200">
-                      <Link to="/quote" state={{ service: service.title }}>
+                    <div className="mt-6 pt-6 border-t border-gray-200 space-y-3">
+                      <Link to={`/services/${service.slug}`}>
                         <Button className="w-full bg-blue-900 hover:bg-blue-800 text-white">
-                          Request Quote for {service.title}
+                          View {service.title}
+                          <MoveRight className="ml-2 w-4 h-4" />
+                        </Button>
+                      </Link>
+                      <Link to="/quote" state={{ service: service.title }}>
+                        <Button variant="outline" className="w-full border-blue-200 text-blue-900 hover:bg-blue-50">
+                          Request Quote
                           <ArrowRight className="ml-2 w-4 h-4" />
                         </Button>
                       </Link>
@@ -79,7 +85,7 @@ const Services = () => {
       </section>
 
       {/* Process Section */}
-      <section className="py-20 bg-gray-50">
+      <section className="py-20 bg-gradient-to-b from-slate-50 to-blue-50/40">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
@@ -90,8 +96,10 @@ const Services = () => {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-            {[
+          <div className="relative mx-auto max-w-6xl">
+            <div className="pointer-events-none absolute left-[12.5%] right-[12.5%] top-10 hidden h-0.5 bg-blue-200 md:block" />
+            <div className="grid grid-cols-1 gap-8 md:grid-cols-4">
+              {[
               {
                 step: '01',
                 title: 'Initial Contact',
@@ -112,9 +120,9 @@ const Services = () => {
                 title: 'Detailed Report',
                 description: 'Receive comprehensive reports within 24-48 hours'
               }
-            ].map((item, index) => (
-              <div key={index} className="text-center">
-                <div className="w-20 h-20 bg-blue-900 rounded-full flex items-center justify-center mx-auto mb-4">
+              ].map((item, index) => (
+              <div key={index} className="relative text-center">
+                <div className="relative z-10 mx-auto mb-4 flex h-20 w-20 items-center justify-center rounded-full bg-blue-900 shadow-lg">
                   <span className="text-2xl font-bold text-white">{item.step}</span>
                 </div>
                 <h3 className="text-xl font-bold text-gray-900 mb-3">
@@ -123,11 +131,9 @@ const Services = () => {
                 <p className="text-gray-600">
                   {item.description}
                 </p>
-                {index < 3 && (
-                  <div className="hidden md:block absolute top-10 left-1/2 w-full h-0.5 bg-blue-200" style={{ transform: 'translateX(50%)' }}></div>
-                )}
               </div>
             ))}
+            </div>
           </div>
         </div>
       </section>

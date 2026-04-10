@@ -1,9 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, Ship, Anchor, Award, CheckCircle } from 'lucide-react';
+import { ArrowRight, Ship, MapPin, Phone, CheckCircle } from 'lucide-react';
 import { Button } from '../components/ui/button';
 import { Card, CardContent } from '../components/ui/card';
-import { services, testimonials } from '../data/mock';
+import { services } from '../data/mock';
 
 const Home = () => {
   return (
@@ -47,27 +47,6 @@ const Home = () => {
         <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
           <div className="w-6 h-10 border-2 border-white rounded-full flex items-start justify-center p-2">
             <div className="w-1 h-3 bg-white rounded-full"></div>
-          </div>
-        </div>
-      </section>
-
-      {/* Stats Section */}
-      <section className="py-16 bg-white">
-        <div className="container mx-auto px-4">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-            {[
-              { number: '500+', label: 'Surveys Completed' },
-              { number: '15+', label: 'Years Experience' },
-              { number: '50+', label: 'Countries Served' },
-              { number: '98%', label: 'Client Satisfaction' }
-            ].map((stat, index) => (
-              <div key={index} className="text-center">
-                <div className="text-4xl md:text-5xl font-bold text-blue-900 mb-2">
-                  {stat.number}
-                </div>
-                <div className="text-gray-600 text-sm md:text-base">{stat.label}</div>
-              </div>
-            ))}
           </div>
         </div>
       </section>
@@ -134,33 +113,36 @@ const Home = () => {
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
+              <div className="inline-flex items-center rounded-full bg-blue-50 px-4 py-2 text-sm font-semibold text-blue-900 mb-6">
+                Built From Mangaluru
+              </div>
               <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-                Why Choose N&H Marine Services?
+                Why Choose NH Marine Services?
               </h2>
-              <p className="text-lg text-gray-600 mb-8">
-                With over 15 years of experience in the maritime industry, we provide reliable, accurate, and professional surveying services that you can trust.
+              <p className="text-lg text-gray-600 mb-10 max-w-xl leading-8">
+                We are a new marine services company starting out in Mangaluru, focused on building trust through responsive communication, careful survey work, and dependable on-ground support.
               </p>
               
               <div className="space-y-6">
                 {[
                   {
+                    icon: MapPin,
+                    title: 'Mangaluru-Based Operations',
+                    description: 'We have started in Mangaluru and are focused on building strong local relationships before expanding further.'
+                  },
+                  {
                     icon: Ship,
-                    title: 'Expert Team',
-                    description: 'Highly qualified marine surveyors with extensive field experience'
+                    title: 'Practical Marine Support',
+                    description: 'Our approach is straightforward: accurate reporting, clear coordination, and attention to operational detail.'
                   },
                   {
-                    icon: Award,
-                    title: 'Certified & Accredited',
-                    description: 'ISO 9001:2015 certified and IFIA, IIMS accredited'
-                  },
-                  {
-                    icon: Anchor,
-                    title: 'Global Coverage',
-                    description: '24/7 availability across 50+ countries worldwide'
+                    icon: Phone,
+                    title: 'Direct Communication',
+                    description: 'You work with a responsive team that values quick updates, clarity, and professional service from first contact onward.'
                   }
                 ].map((feature, index) => (
-                  <div key={index} className="flex items-start space-x-4">
-                    <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                  <div key={index} className="flex items-start space-x-4 rounded-2xl border border-blue-100 bg-white p-5 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
+                    <div className="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center flex-shrink-0">
                       <feature.icon className="w-6 h-6 text-blue-900" />
                     </div>
                     <div>
@@ -182,51 +164,41 @@ const Home = () => {
                 </Link>
               </div>
             </div>
-
             <div className="relative">
-              <img
-                src="https://images.unsplash.com/photo-1756670813478-2d7f5ac977fe"
-                alt="Marine operations"
-                className="rounded-lg shadow-2xl w-full h-[600px] object-cover"
-              />
-              <div className="absolute -bottom-6 -left-6 w-32 h-32 bg-blue-900 rounded-lg opacity-20"></div>
-              <div className="absolute -top-6 -right-6 w-32 h-32 bg-blue-600 rounded-lg opacity-20"></div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Testimonials */}
-      <section className="py-20 bg-blue-50">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-              What Our Clients Say
-            </h2>
-            <p className="text-xl text-gray-600">
-              Trusted by leading maritime companies worldwide
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {testimonials.map((testimonial) => (
-              <Card key={testimonial.id} className="bg-white">
-                <CardContent className="p-6">
-                  <div className="flex mb-4">
-                    {[...Array(testimonial.rating)].map((_, i) => (
-                      <span key={i} className="text-yellow-500 text-xl">★</span>
-                    ))}
+              <div className="relative overflow-hidden rounded-[2rem] bg-gradient-to-br from-slate-950 via-blue-950 to-sky-900 p-8 md:p-10 text-white shadow-2xl">
+                <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(125,211,252,0.35),transparent_35%),radial-gradient(circle_at_bottom_left,rgba(59,130,246,0.25),transparent_30%)]" />
+                <div className="relative">
+                  <div className="inline-flex items-center rounded-full border border-white/20 bg-white/10 px-4 py-2 text-sm font-medium text-blue-100">
+                    Starting from Mangaluru, Karnataka
                   </div>
-                  <p className="text-gray-700 mb-6 italic">
-                    "{testimonial.content}"
+
+                  <h3 className="mt-6 text-3xl md:text-4xl font-bold leading-tight">
+                    Building our name through reliable local service.
+                  </h3>
+
+                  <p className="mt-4 max-w-lg text-base md:text-lg leading-8 text-blue-100">
+                    We are focused on delivering dependable marine surveying support from Mangaluru with a hands-on, service-first approach.
                   </p>
-                  <div>
-                    <p className="font-semibold text-gray-900">{testimonial.name}</p>
-                    <p className="text-sm text-gray-600">{testimonial.position}</p>
+
+                  <div className="mt-8 grid gap-4 sm:grid-cols-2">
+                    <div className="rounded-2xl border border-white/15 bg-white/10 p-5 backdrop-blur-sm">
+                      <p className="text-sm uppercase tracking-[0.2em] text-blue-200">Base</p>
+                      <p className="mt-2 text-xl font-semibold text-white">Mangaluru</p>
+                      <p className="mt-2 text-sm leading-6 text-blue-100">Our operations are currently centered in Mangaluru as we establish our market presence.</p>
+                    </div>
+
+                    <div className="rounded-2xl border border-white/15 bg-white/10 p-5 backdrop-blur-sm">
+                      <p className="text-sm uppercase tracking-[0.2em] text-blue-200">Focus</p>
+                      <p className="mt-2 text-xl font-semibold text-white">Responsive Service</p>
+                      <p className="mt-2 text-sm leading-6 text-blue-100">Clear communication, timely coordination, and practical support for every assignment.</p>
+                    </div>
                   </div>
-                </CardContent>
-              </Card>
-            ))}
+                </div>
+              </div>
+
+              <div className="absolute -bottom-5 -left-5 h-24 w-24 rounded-3xl bg-sky-200/70 blur-2xl" />
+              <div className="absolute -top-5 -right-5 h-24 w-24 rounded-3xl bg-blue-400/30 blur-2xl" />
+            </div>
           </div>
         </div>
       </section>

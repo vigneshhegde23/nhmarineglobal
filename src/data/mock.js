@@ -1,9 +1,20 @@
 export const services = [
   {
     id: 1,
+    slug: "draught-survey",
     title: "Draught Survey",
     description: "Accurate measurement and calculation of cargo quantity loaded or discharged from vessels.",
     icon: "Ship",
+    heroImage: "https://images.pexels.com/photos/5756891/pexels-photo-5756891.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    overview:
+      "Our draught survey support focuses on practical cargo quantity verification with careful vessel reading, sounding checks, and clear reporting for charterers, owners, and operators.",
+    intro:
+      "NH Marine Services provides draught survey assistance for loading and discharge operations with attention to detail, transparent communication, and dependable documentation.",
+    highlights: [
+      "Suitable for loading and discharge quantity verification",
+      "Clear reporting to support commercial decision-making",
+      "Focused coordination with vessel and terminal teams"
+    ],
     details: [
       "Pre-loading and post-loading surveys",
       "Cargo weight determination",
@@ -13,9 +24,20 @@ export const services = [
   },
   {
     id: 2,
+    slug: "bunker-survey",
     title: "Bunker Survey",
     description: "Precise measurement and documentation of fuel quantities during bunkering operations.",
     icon: "Fuel",
+    heroImage: "https://images.pexels.com/photos/10020724/pexels-photo-10020724.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    overview:
+      "Our bunker survey service is designed to help vessel interests monitor fuel quantity during delivery with reliable observation, quantity checks, and straightforward reporting.",
+    intro:
+      "We support bunker quantity verification by helping record key measurements, coordinating observations onboard, and preparing documentation in a clear and timely format.",
+    highlights: [
+      "Quantity verification during bunkering operations",
+      "Support for clearer fuel-related documentation",
+      "Responsive communication during time-sensitive operations"
+    ],
     details: [
       "Bunker quantity verification",
       "Quality analysis",
@@ -25,9 +47,20 @@ export const services = [
   },
   {
     id: 3,
+    slug: "p-and-i-services",
     title: "P&I Services",
     description: "Protection and Indemnity services including surveys and consultancy for maritime incidents.",
     icon: "Shield",
+    heroImage: "/p&i.avif",
+    overview:
+      "Our P&I support services are intended to assist principals with factual site observations, condition checks, and timely reporting when incidents or operational concerns arise.",
+    intro:
+      "We aim to provide dependable on-ground assistance for marine incidents by documenting conditions carefully and sharing information clearly with all relevant parties.",
+    highlights: [
+      "Practical support for incident-related inspections",
+      "Clear factual reporting and visual observations",
+      "Useful coordination during sensitive operational matters"
+    ],
     details: [
       "Incident investigation",
       "Cargo damage assessment",
@@ -37,9 +70,20 @@ export const services = [
   },
   {
     id: 4,
+    slug: "condition-survey",
     title: "Condition Survey",
     description: "Comprehensive vessel and cargo condition assessment for insurance and pre-purchase purposes.",
     icon: "ClipboardCheck",
+    heroImage: "https://images.pexels.com/photos/5943939/pexels-photo-5943939.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    overview:
+      "Our condition survey work is focused on documenting the visible state of vessels, cargo, or equipment with organized inspection notes and practical reporting.",
+    intro:
+      "Whether the requirement is operational review, cargo condition recording, or a general vessel check, we aim to provide a structured survey approach and a clear outcome.",
+    highlights: [
+      "Useful for pre-operation and condition documentation",
+      "Focused visual inspection and reporting",
+      "Suitable for owners, operators, and commercial stakeholders"
+    ],
     details: [
       "Pre-purchase surveys",
       "Vessel condition reports",
@@ -49,9 +93,20 @@ export const services = [
   },
   {
     id: 5,
+    slug: "on-off-hire-survey",
     title: "On/Off Hire Survey",
     description: "Detailed vessel inspection at the start and end of charter periods.",
     icon: "FileText",
+    heroImage: "https://images.pexels.com/photos/19698686/pexels-photo-19698686.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    overview:
+      "Our on-hire and off-hire survey support helps record vessel condition, bunkers, and operational observations at key charter transition points.",
+    intro:
+      "We provide practical assistance in documenting vessel status at delivery and redelivery, helping principals maintain a clear survey record during charter movement.",
+    highlights: [
+      "Condition recording at delivery and redelivery stages",
+      "Useful bunker and equipment observation support",
+      "Clear reporting to help reduce later uncertainty"
+    ],
     details: [
       "Vessel condition documentation",
       "Bunker ROB verification",
@@ -61,15 +116,50 @@ export const services = [
   },
   {
     id: 6,
+    slug: "marine-consultancy",
     title: "Marine Consultancy",
     description: "Expert advice and guidance on maritime operations, compliance, and best practices.",
     icon: "Users",
+    heroImage: "https://images.pexels.com/photos/18676400/pexels-photo-18676400.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    overview:
+      "Our marine consultancy support is centered on practical guidance, operational coordination, and helping clients approach marine requirements with clarity.",
+    intro:
+      "As a growing Mangaluru-based company, we focus on responsive consultancy support and clear communication that helps clients move ahead with confidence.",
+    highlights: [
+      "Operational guidance with a practical approach",
+      "Responsive communication from a local team",
+      "Support tailored to the client’s immediate requirement"
+    ],
     details: [
       "Operational consultancy",
       "Compliance advisory",
       "Risk management",
       "Training and development"
     ]
+  },
+  {
+  id: 7,
+  slug: "compass-adjustment",
+  title: "Compass Adjustment",
+  description: "Professional magnetic compass adjustment and calibration services ensuring accurate navigation and compliance with maritime standards.",
+  icon: "Compass",
+  heroImage: "/compass%20adjustment.png",
+  overview:
+    "Our compass adjustment support focuses on helping vessels maintain reliable magnetic compass performance through careful checking, observation, and reporting.",
+  intro:
+    "We provide compass adjustment assistance with attention to onboard conditions, deviation observations, and practical documentation for navigational reference.",
+  highlights: [
+    "Support for compass checking and adjustment activity",
+    "Useful onboard observation and deviation recording",
+    "Clear reporting for operational follow-up"
+  ],
+  details: [
+    "Magnetic compass deviation correction",
+    "Onboard compass calibration",
+    "Deviation card preparation",
+    "Error analysis and reporting",
+    "Compliance with IMO standards"
+  ]
   }
 ];
 
@@ -78,7 +168,7 @@ export const testimonials = [
     id: 1,
     name: "Captain James Anderson",
     position: "Fleet Manager, Global Shipping Co.",
-    content: "N&H Marine Services has been our trusted partner for over 5 years. Their draught survey accuracy and professionalism are unmatched.",
+    content: "NH Marine Services has been our trusted partner for over 5 years. Their draught survey accuracy and professionalism are unmatched.",
     rating: 5
   },
   {
@@ -92,7 +182,7 @@ export const testimonials = [
     id: 3,
     name: "David Chen",
     position: "Marine Superintendent, Ocean Carriers",
-    content: "Professional, reliable, and thorough. N&H Marine Services consistently delivers high-quality surveys and consultancy.",
+    content: "Professional, reliable, and thorough. NH Marine Services consistently delivers high-quality surveys and consultancy.",
     rating: 5
   }
 ];
@@ -168,31 +258,21 @@ export const certifications = [
 export const team = [
   {
     id: 1,
-    name: "Captain Robert Harrison",
-    position: "Chief Marine Surveyor",
-    experience: "25+ years",
-    qualifications: "Master Mariner, IIMS Certified"
+    name: "Capt. Gurudath Nayak",
+    position: "Master Mariner",
+    image: "/1st.jpg"
   },
   {
     id: 2,
-    name: "Priya Sharma",
-    position: "Senior Marine Surveyor",
-    experience: "15+ years",
-    qualifications: "Naval Architect, IFIA Member"
+    name: "Laxmish Nayak",
+    position: "Navigating Officer",
+    image: "/2nd.jpg"
   },
   {
     id: 3,
-    name: "Michael Wong",
-    position: "Marine Surveyor",
-    experience: "12+ years",
-    qualifications: "Chief Engineer, IIMS Certified"
-  },
-  {
-    id: 4,
-    name: "Lisa Martinez",
-    position: "Operations Manager",
-    experience: "10+ years",
-    qualifications: "Maritime Business Management"
+    name: "Vignesh Anand Hegde",
+    position: "Marine Engineer",
+    image: "/3rd.jpeg"
   }
 ];
 

@@ -1,12 +1,11 @@
 import React, { useState } from 'react';
-import { MapPin, Phone, Mail, Clock } from 'lucide-react';
+import { MapPin, Phone, Mail } from 'lucide-react';
 import { Button } from '../components/ui/button';
 import { Input } from '../components/ui/input';
 import { Textarea } from '../components/ui/textarea';
-import { Label } from '../components/ui/label';
 import { Card, CardContent } from '../components/ui/card';
 import { toast } from 'sonner';
-import { submitContactForm } from '../data/mock';
+import { submitWeb3Form } from '../lib/formSubmit';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -30,8 +29,18 @@ const Contact = () => {
     setIsSubmitting(true);
 
     try {
-      const result = await submitContactForm(formData);
-      toast.success(result.message);
+      await submitWeb3Form({
+        subject: `Contact Form - ${formData.subject}`,
+        fields: {
+          form_type: 'Contact Form',
+          name: formData.name,
+          email: formData.email,
+          phone: formData.phone || 'N/A',
+          subject: formData.subject,
+          message: formData.message
+        }
+      });
+      toast.success("Message sent successfully. We'll get back to you soon.");
       setFormData({
         name: '',
         email: '',
@@ -48,6 +57,7 @@ const Contact = () => {
 
   return (
     <div className="min-h-screen pt-20">
+      
       {/* Hero Section */}
       <section className="relative py-20 bg-gradient-to-br from-blue-900 to-blue-700 text-white">
         <div className="container mx-auto px-4">
@@ -66,6 +76,7 @@ const Contact = () => {
       <section className="py-20 bg-white">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
+            
             {/* Contact Information */}
             <div className="lg:col-span-1">
               <h2 className="text-3xl font-bold text-gray-900 mb-6">
@@ -76,18 +87,17 @@ const Contact = () => {
               </p>
 
               <div className="space-y-6">
+
                 <Card>
                   <CardContent className="p-4">
                     <div className="flex items-start space-x-4">
-                      <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                      <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center">
                         <MapPin className="w-6 h-6 text-blue-900" />
                       </div>
                       <div>
                         <h3 className="font-semibold text-gray-900 mb-1">Address</h3>
                         <p className="text-gray-600 text-sm">
-                          123 Maritime Plaza<br />
-                          Port District<br />
-                          Singapore 018956
+                          Mangalore, India
                         </p>
                       </div>
                     </div>
@@ -97,13 +107,12 @@ const Contact = () => {
                 <Card>
                   <CardContent className="p-4">
                     <div className="flex items-start space-x-4">
-                      <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                      <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center">
                         <Phone className="w-6 h-6 text-blue-900" />
                       </div>
                       <div>
                         <h3 className="font-semibold text-gray-900 mb-1">Phone</h3>
-                        <p className="text-gray-600 text-sm">+65 6789 1234</p>
-                        <p className="text-gray-600 text-sm">+65 9876 5432 (24/7)</p>
+                        <p className="text-gray-600 text-sm">+91 9902452207</p>
                       </div>
                     </div>
                   </CardContent>
@@ -112,32 +121,17 @@ const Contact = () => {
                 <Card>
                   <CardContent className="p-4">
                     <div className="flex items-start space-x-4">
-                      <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                      <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center">
                         <Mail className="w-6 h-6 text-blue-900" />
                       </div>
                       <div>
                         <h3 className="font-semibold text-gray-900 mb-1">Email</h3>
-                        <p className="text-gray-600 text-sm">info@nhmarine.com</p>
-                        <p className="text-gray-600 text-sm">support@nhmarine.com</p>
+                        <p className="text-gray-600 text-sm">nhmarineglobal@gmail.com</p>
                       </div>
                     </div>
                   </CardContent>
                 </Card>
 
-                <Card>
-                  <CardContent className="p-4">
-                    <div className="flex items-start space-x-4">
-                      <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0">
-                        <Clock className="w-6 h-6 text-blue-900" />
-                      </div>
-                      <div>
-                        <h3 className="font-semibold text-gray-900 mb-1">Business Hours</h3>
-                        <p className="text-gray-600 text-sm">24/7 Service Available</p>
-                        <p className="text-gray-600 text-sm">Office: Mon-Fri, 9AM-6PM</p>
-                      </div>
-                    </div>
-                  </CardContent>
-                </Card>
               </div>
             </div>
 
@@ -148,113 +142,38 @@ const Contact = () => {
                   <h2 className="text-3xl font-bold text-gray-900 mb-6">
                     Send Us a Message
                   </h2>
+
                   <form onSubmit={handleSubmit} className="space-y-6">
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                      <div>
-                        <Label htmlFor="name" className="text-gray-900 mb-2 block">
-                          Full Name *
-                        </Label>
-                        <Input
-                          id="name"
-                          name="name"
-                          type="text"
-                          required
-                          value={formData.name}
-                          onChange={handleChange}
-                          placeholder="John Doe"
-                          className="h-12"
-                        />
-                      </div>
 
-                      <div>
-                        <Label htmlFor="email" className="text-gray-900 mb-2 block">
-                          Email Address *
-                        </Label>
-                        <Input
-                          id="email"
-                          name="email"
-                          type="email"
-                          required
-                          value={formData.email}
-                          onChange={handleChange}
-                          placeholder="john@example.com"
-                          className="h-12"
-                        />
-                      </div>
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                      <Input name="name" placeholder="Full Name *" required value={formData.name} onChange={handleChange} />
+                      <Input name="email" type="email" placeholder="Email *" required value={formData.email} onChange={handleChange} />
                     </div>
 
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                      <div>
-                        <Label htmlFor="phone" className="text-gray-900 mb-2 block">
-                          Phone Number
-                        </Label>
-                        <Input
-                          id="phone"
-                          name="phone"
-                          type="tel"
-                          value={formData.phone}
-                          onChange={handleChange}
-                          placeholder="+1 234 567 8900"
-                          className="h-12"
-                        />
-                      </div>
-
-                      <div>
-                        <Label htmlFor="subject" className="text-gray-900 mb-2 block">
-                          Subject *
-                        </Label>
-                        <Input
-                          id="subject"
-                          name="subject"
-                          type="text"
-                          required
-                          value={formData.subject}
-                          onChange={handleChange}
-                          placeholder="Survey inquiry"
-                          className="h-12"
-                        />
-                      </div>
+                      <Input name="phone" placeholder="Phone" value={formData.phone} onChange={handleChange} />
+                      <Input name="subject" placeholder="Subject *" required value={formData.subject} onChange={handleChange} />
                     </div>
 
-                    <div>
-                      <Label htmlFor="message" className="text-gray-900 mb-2 block">
-                        Message *
-                      </Label>
-                      <Textarea
-                        id="message"
-                        name="message"
-                        required
-                        value={formData.message}
-                        onChange={handleChange}
-                        placeholder="Tell us about your requirements..."
-                        rows={6}
-                        className="resize-none"
-                      />
-                    </div>
+                    <Textarea name="message" placeholder="Your Message *" required rows={5} value={formData.message} onChange={handleChange} />
 
                     <Button
                       type="submit"
                       disabled={isSubmitting}
-                      className="w-full bg-blue-900 hover:bg-blue-800 text-white h-12 text-lg"
+                      className="w-full bg-blue-900 hover:bg-blue-800 text-white h-12"
                     >
                       {isSubmitting ? 'Sending...' : 'Send Message'}
                     </Button>
+
                   </form>
                 </CardContent>
               </Card>
             </div>
+
           </div>
         </div>
       </section>
 
-      {/* Map Section */}
-      <section className="py-20 bg-gray-50">
-        <div className="container mx-auto px-4">
-          <div className="rounded-lg overflow-hidden shadow-xl h-96 bg-gray-300 flex items-center justify-center">
-            <p className="text-gray-600 text-lg">Map Integration Area</p>
-          </div>
-        </div>
-      </section>
     </div>
   );
 };

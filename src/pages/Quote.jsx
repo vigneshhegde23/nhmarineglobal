@@ -13,7 +13,8 @@ import {
   SelectValue,
 } from '../components/ui/select';
 import { toast } from 'sonner';
-import { submitQuoteRequest, services } from '../data/mock';
+import { services } from '../data/mock';
+import { submitWeb3Form } from '../lib/formSubmit';
 
 const Quote = () => {
   const location = useLocation();
@@ -52,8 +53,23 @@ const Quote = () => {
     setIsSubmitting(true);
 
     try {
-      const result = await submitQuoteRequest(formData);
-      toast.success(result.message);
+      await submitWeb3Form({
+        subject: `Quote Request - ${formData.service || 'Marine Service'}`,
+        fields: {
+          form_type: 'Quote Request',
+          name: formData.name,
+          company: formData.company,
+          email: formData.email,
+          phone: formData.phone,
+          service: formData.service,
+          preferred_date: formData.date,
+          vessel_name: formData.vesselName,
+          vessel_type: formData.vesselType,
+          port_location: formData.location,
+          additional_details: formData.additionalInfo || 'N/A'
+        }
+      });
+      toast.success('Quote request sent successfully. We will get back to you soon.');
       setFormData({
         name: '',
         company: '',
@@ -292,7 +308,7 @@ const Quote = () => {
                 </form>
 
                 <p className="text-sm text-gray-600 mt-6 text-center">
-                  * Our team will review your request and get back to you within 24 hours with a detailed quotation.
+                  * Quote requests are sent directly to nhmarineglobal@gmail.com.
                 </p>
               </CardContent>
             </Card>

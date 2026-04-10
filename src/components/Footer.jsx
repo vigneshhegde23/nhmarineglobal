@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Ship, Mail, Phone, MapPin} from 'lucide-react';
+import { Mail, Phone, MapPin } from 'lucide-react';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -11,16 +11,22 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Company Info */}
           <div>
-            <div className="flex items-center space-x-3 mb-4">
-              <div className="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center">
-                <Ship className="w-6 h-6 text-white" />
-              </div>
-              <div>
-                <h3 className="text-white font-bold">N&H Marine Services</h3>
-                <p className="text-xs">Pvt Limited</p>
+            <div className="mb-5 inline-flex items-center gap-3">
+              <img
+                src="/logo.png"
+                alt="NH Marine Logo"
+                className="h-16 w-auto object-contain drop-shadow-[0_0_18px_rgba(125,211,252,0.32)] brightness-125 contrast-110 saturate-110"
+              />
+              <div className="leading-tight">
+                <p className="text-lg font-extrabold tracking-[0.08em] text-white">
+                  NH Marine Services
+                </p>
+                <p className="text-xs uppercase tracking-[0.22em] text-blue-100">
+                  Pvt. Ltd.
+                </p>
               </div>
             </div>
-            <p className="text-sm mb-4">
+            <p className="text-sm mb-4 max-w-xs leading-6">
               Leading provider of professional marine surveying and consultancy services worldwide.
             </p>
             <div className="flex space-x-4">
@@ -42,11 +48,6 @@ const Footer = () => {
                 </Link>
               </li>
               <li>
-                <Link to="/projects" className="hover:text-blue-400 transition-colors">
-                  Projects
-                </Link>
-              </li>
-              <li>
                 <Link to="/about" className="hover:text-blue-400 transition-colors">
                   About Us
                 </Link>
@@ -64,28 +65,38 @@ const Footer = () => {
             <h4 className="text-white font-semibold mb-4">Our Services</h4>
             <ul className="space-y-2 text-sm">
               <li>
-                <Link to="/services" className="hover:text-blue-400 transition-colors">
+                <Link to="/services/draught-survey" className="hover:text-blue-400 transition-colors">
                   Draught Survey
                 </Link>
               </li>
               <li>
-                <Link to="/services" className="hover:text-blue-400 transition-colors">
+                <Link to="/services/bunker-survey" className="hover:text-blue-400 transition-colors">
                   Bunker Survey
                 </Link>
               </li>
               <li>
-                <Link to="/services" className="hover:text-blue-400 transition-colors">
+                <Link to="/services/p-and-i-services" className="hover:text-blue-400 transition-colors">
                   P&I Services
                 </Link>
               </li>
               <li>
-                <Link to="/services" className="hover:text-blue-400 transition-colors">
+                <Link to="/services/condition-survey" className="hover:text-blue-400 transition-colors">
                   Condition Survey
                 </Link>
               </li>
               <li>
-                <Link to="/services" className="hover:text-blue-400 transition-colors">
+                <Link to="/services/marine-consultancy" className="hover:text-blue-400 transition-colors">
                   Marine Consultancy
+                </Link>
+              </li>
+              <li>
+                <Link to="/services/on-off-hire-survey" className="hover:text-blue-400 transition-colors">
+                  On/Off Hire Survey
+                </Link>
+              </li>
+              <li>
+                <Link to="/services/compass-adjustment" className="hover:text-blue-400 transition-colors">
+                  Compass Adjustment
                 </Link>
               </li>
             </ul>
@@ -97,15 +108,15 @@ const Footer = () => {
             <ul className="space-y-3 text-sm">
               <li className="flex items-start space-x-3">
                 <MapPin className="w-5 h-5 mt-0.5 flex-shrink-0" />
-                <span>123 Maritime Plaza, Port District, Singapore 018956</span>
+                <span>Mangaluru, Dakshina Kannada, Karnataka - 575028, India</span>
               </li>
               <li className="flex items-center space-x-3">
                 <Phone className="w-5 h-5 flex-shrink-0" />
-                <span>+65 6789 1234</span>
+                <span>+91 9902452207</span>
               </li>
               <li className="flex items-center space-x-3">
                 <Mail className="w-5 h-5 flex-shrink-0" />
-                <span>info@nhmarine.com</span>
+                <span>nhmarineglobal@gmail.com</span>
               </li>
             </ul>
           </div>
@@ -114,7 +125,7 @@ const Footer = () => {
         {/* Bottom Bar */}
         <div className="border-t border-gray-800 mt-8 pt-8 text-sm text-center">
           <p>
-            &copy; {currentYear} N&H Marine Services Pvt Limited. All rights reserved.
+            &copy; {currentYear} NH Marine Services Pvt Limited. All rights reserved.
           </p>
         </div>
       </div>
