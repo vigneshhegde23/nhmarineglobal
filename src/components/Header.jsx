@@ -51,11 +51,11 @@ const Header = () => {
                 {item.name}
               </Link>
             ))}
-            <Link to="/quote">
-              <Button className="bg-blue-900 hover:bg-blue-800 text-white">
+            <Button asChild className="bg-blue-900 hover:bg-blue-800 text-white">
+              <Link to="/quote">
                 Get Quote
-              </Button>
-            </Link>
+              </Link>
+            </Button>
           </nav>
 
           {/* Mobile Menu Button */}
@@ -88,11 +88,11 @@ const Header = () => {
                 {item.name}
               </Link>
             ))}
-            <Link to="/quote" onClick={() => setIsMenuOpen(false)}>
-              <Button className="w-full mt-3 bg-blue-900 hover:bg-blue-800 text-white">
+            <Button asChild className="w-full mt-3 bg-blue-900 hover:bg-blue-800 text-white">
+              <Link to="/quote" onClick={() => setIsMenuOpen(false)}>
                 Get Quote
-              </Button>
-            </Link>
+              </Link>
+            </Button>
           </nav>
         )}
       </div>

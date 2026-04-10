@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Mail, Phone, MapPin } from 'lucide-react';
 import { contactDetails } from '../data/contact';
+import { services } from '../data/mock';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -57,31 +58,13 @@ const Footer = () => {
           <div>
             <h4 className="text-white font-semibold mb-4">Our Services</h4>
             <ul className="space-y-2 text-sm">
-              <li>
-                <Link to="/services/p-and-i-services" className="hover:text-blue-400 transition-colors">
-                  P&I Services
-                </Link>
-              </li>
-              <li>
-                <Link to="/services/condition-survey" className="hover:text-blue-400 transition-colors">
-                  Condition Survey
-                </Link>
-              </li>
-              <li>
-                <Link to="/services/marine-consultancy" className="hover:text-blue-400 transition-colors">
-                  Marine Consultancy
-                </Link>
-              </li>
-              <li>
-                <Link to="/services/on-off-hire-survey" className="hover:text-blue-400 transition-colors">
-                  On/Off Hire Survey
-                </Link>
-              </li>
-              <li>
-                <Link to="/services/compass-adjustment" className="hover:text-blue-400 transition-colors">
-                  Compass Adjustment
-                </Link>
-              </li>
+              {services.map((service) => (
+                <li key={service.slug}>
+                  <Link to={`/services/${service.slug}`} className="hover:text-blue-400 transition-colors">
+                    {service.title}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
 

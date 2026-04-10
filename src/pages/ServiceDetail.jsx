@@ -144,17 +144,17 @@ const ServiceDetail = () => {
                 </p>
               </div>
               <div className="flex flex-col gap-3 sm:flex-row md:flex-col">
-                <Link to="/quote" state={{ service: service.title }}>
-                  <Button size="lg" className="w-full bg-white text-blue-900 hover:bg-blue-50">
+                <Button asChild size="lg" className="w-full bg-white text-blue-900 hover:bg-blue-50">
+                  <Link to="/quote" state={{ service: service.title }}>
                     Request a Quote
                     <ArrowRight className="ml-2 h-5 w-5" />
-                  </Button>
-                </Link>
-                <Link to="/contact">
-                  <Button size="lg" variant="outline" className="w-full border-white text-white hover:bg-white hover:text-blue-900">
+                  </Link>
+                </Button>
+                <Button asChild size="lg" variant="outline" className="w-full border-white text-white hover:bg-white hover:text-blue-900">
+                  <Link to="/contact">
                     Contact Us
-                  </Button>
-                </Link>
+                  </Link>
+                </Button>
               </div>
             </div>
           </div>

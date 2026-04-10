@@ -60,18 +60,18 @@ const Services = () => {
                     </div>
 
                     <div className="mt-6 pt-6 border-t border-gray-200 space-y-3">
-                      <Link to={`/services/${service.slug}`}>
-                        <Button className="w-full bg-blue-900 hover:bg-blue-800 text-white">
+                      <Button asChild className="w-full bg-blue-900 hover:bg-blue-800 text-white">
+                        <Link to={`/services/${service.slug}`}>
                           View {service.title}
                           <MoveRight className="ml-2 w-4 h-4" />
-                        </Button>
-                      </Link>
-                      <Link to="/quote" state={{ service: service.title }}>
-                        <Button variant="outline" className="w-full border-blue-200 text-blue-900 hover:bg-blue-50">
+                        </Link>
+                      </Button>
+                      <Button asChild variant="outline" className="w-full border-blue-200 text-blue-900 hover:bg-blue-50">
+                        <Link to="/quote" state={{ service: service.title }}>
                           Request Quote
                           <ArrowRight className="ml-2 w-4 h-4" />
-                        </Button>
-                      </Link>
+                        </Link>
+                      </Button>
                     </div>
                   </CardContent>
                 </Card>
@@ -144,12 +144,12 @@ const Services = () => {
           <p className="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
             Get in touch with our team for professional marine surveying services
           </p>
-          <Link to="/quote">
-            <Button size="lg" className="bg-white text-blue-900 hover:bg-blue-50 px-8">
+          <Button asChild size="lg" className="bg-white text-blue-900 hover:bg-blue-50 px-8">
+            <Link to="/quote">
               Request a Quote
               <ArrowRight className="ml-2 w-5 h-5" />
-            </Button>
-          </Link>
+            </Link>
+          </Button>
         </div>
       </section>
     </div>

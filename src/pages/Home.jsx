@@ -28,17 +28,17 @@ const Home = () => {
               Trusted expertise in draught surveys, bunker surveys, P&I services, and marine consultancy worldwide
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link to="/services">
-                <Button size="lg" className="bg-white text-blue-900 hover:bg-blue-50 text-lg px-8 py-6">
+              <Button asChild size="lg" className="bg-white text-blue-900 hover:bg-blue-50 text-lg px-8 py-6">
+                <Link to="/services">
                   Our Services
                   <ArrowRight className="ml-2 w-5 h-5" />
-                </Button>
-              </Link>
-              <Link to="/quote">
-                <Button size="lg" variant="outline" className="border-2 border-white text-white hover:bg-white hover:text-blue-900 text-lg px-8 py-6">
+                </Link>
+              </Button>
+              <Button asChild size="lg" variant="outline" className="border-2 border-white text-white hover:bg-white hover:text-blue-900 text-lg px-8 py-6">
+                <Link to="/quote">
                   Get a Quote
-                </Button>
-              </Link>
+                </Link>
+              </Button>
             </div>
           </div>
         </div>
@@ -86,12 +86,12 @@ const Home = () => {
                         </li>
                       ))}
                     </ul>
-                    <Link to="/services">
-                      <Button variant="ghost" className="text-blue-900 hover:text-blue-700 p-0">
+                    <Button asChild variant="ghost" className="text-blue-900 hover:text-blue-700 p-0">
+                      <Link to={`/services/${service.slug}`}>
                         Learn More
                         <ArrowRight className="ml-2 w-4 h-4" />
-                      </Button>
-                    </Link>
+                      </Link>
+                    </Button>
                   </CardContent>
                 </Card>
               );
@@ -99,11 +99,11 @@ const Home = () => {
           </div>
 
           <div className="text-center mt-12">
-            <Link to="/services">
-              <Button size="lg" className="bg-blue-900 hover:bg-blue-800 text-white px-8">
+            <Button asChild size="lg" className="bg-blue-900 hover:bg-blue-800 text-white px-8">
+              <Link to="/services">
                 View All Services
-              </Button>
-            </Link>
+              </Link>
+            </Button>
           </div>
         </div>
       </section>
@@ -153,12 +153,12 @@ const Home = () => {
               </div>
 
               <div className="mt-8">
-                <Link to="/about">
-                  <Button size="lg" className="bg-blue-900 hover:bg-blue-800 text-white">
+                <Button asChild size="lg" className="bg-blue-900 hover:bg-blue-800 text-white">
+                  <Link to="/about">
                     Learn More About Us
                     <ArrowRight className="ml-2 w-5 h-5" />
-                  </Button>
-                </Link>
+                  </Link>
+                </Button>
               </div>
             </div>
             <div className="relative">
@@ -206,17 +206,17 @@ const Home = () => {
             Contact us today for professional marine surveying services you can trust
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link to="/quote">
-              <Button size="lg" className="bg-white text-blue-900 hover:bg-blue-50 px-8">
+            <Button asChild size="lg" className="bg-white text-blue-900 hover:bg-blue-50 px-8">
+              <Link to="/quote">
                 Request a Quote
                 <ArrowRight className="ml-2 w-5 h-5" />
-              </Button>
-            </Link>
-            <Link to="/contact">
-              <Button size="lg" variant="outline" className="border-2 border-white text-white hover:bg-white hover:text-blue-900 px-8">
+              </Link>
+            </Button>
+            <Button asChild size="lg" variant="outline" className="border-2 border-white text-white hover:bg-white hover:text-blue-900 px-8">
+              <Link to="/contact">
                 Contact Us
-              </Button>
-            </Link>
+              </Link>
+            </Button>
           </div>
         </div>
       </section>

@@ -155,12 +155,12 @@ const About = () => {
           <p className="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
             Join hundreds of satisfied clients who trust us for their marine surveying needs
           </p>
-          <Link to="/contact">
-            <Button size="lg" className="bg-white text-blue-900 hover:bg-blue-50 px-8">
+          <Button asChild size="lg" className="bg-white text-blue-900 hover:bg-blue-50 px-8">
+            <Link to="/contact">
               Get in Touch
               <ArrowRight className="ml-2 w-5 h-5" />
-            </Button>
-          </Link>
+            </Link>
+          </Button>
         </div>
       </section>
     </div>
