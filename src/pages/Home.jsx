@@ -88,7 +88,7 @@ const Home = () => {
                     </ul>
                     <Button asChild variant="ghost" className="text-blue-900 hover:text-blue-700 p-0">
                       <Link to={`/services/${service.slug}`}>
-                        Learn More
+                        View {service.title}
                         <ArrowRight className="ml-2 w-4 h-4" />
                       </Link>
                     </Button>

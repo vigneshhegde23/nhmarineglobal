@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link, Navigate, useParams } from 'react-router-dom';
-import { ArrowRight, CheckCircle, ChevronRight, MapPin, PhoneCall, ShieldCheck } from 'lucide-react';
+import { ArrowRight, CheckCircle, ChevronRight, ShieldCheck } from 'lucide-react';
 import { Button } from '../components/ui/button';
 import { Card, CardContent } from '../components/ui/card';
 import { services } from '../data/mock';
@@ -128,17 +128,7 @@ const ServiceDetail = () => {
           <div className="mt-16 rounded-[2rem] bg-gradient-to-r from-slate-950 via-blue-950 to-blue-900 p-8 text-white shadow-2xl md:p-10">
             <div className="grid gap-8 md:grid-cols-[1fr_auto] md:items-center">
               <div>
-                <div className="flex flex-wrap gap-3 text-sm text-blue-100">
-                  <span className="inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-2">
-                    <MapPin className="h-4 w-4" />
-                    South India port support
-                  </span>
-                  <span className="inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-2">
-                    <PhoneCall className="h-4 w-4" />
-                    Direct response for inquiries
-                  </span>
-                </div>
-                <h3 className="mt-5 text-3xl font-bold">Need support for {service.title.toLowerCase()}?</h3>
+                <h3 className="text-3xl font-bold">Need support for {service.title.toLowerCase()}?</h3>
                 <p className="mt-3 max-w-2xl text-base leading-7 text-blue-100">
                   Tell us your vessel, location, and service requirement, and we will get back to you with a suitable response.
                 </p>
