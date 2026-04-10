@@ -26,18 +26,15 @@ const Services = () => {
       <section className="py-20 bg-white">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-            {services.map((service, index) => {
+            {services.map((service) => {
               const IconComponent = require('lucide-react')[service.icon];
               return (
                 <Card key={service.id} className="group overflow-hidden border border-slate-200 bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-blue-300 hover:shadow-2xl">
                   <CardHeader>
-                    <div className="flex items-start justify-between mb-4">
+                    <div className="mb-4 flex items-start justify-between">
                       <div className="w-16 h-16 rounded-2xl bg-blue-100 flex items-center justify-center group-hover:bg-blue-900 transition-colors duration-300">
                         <IconComponent className="w-8 h-8 text-blue-900 group-hover:text-white transition-colors duration-300" />
                       </div>
-                      <span className="rounded-full bg-blue-50 px-3 py-1 text-sm font-semibold text-blue-900">
-                        Service {index + 1}
-                      </span>
                     </div>
                     <CardTitle className="text-2xl font-bold text-gray-900">
                       {service.title}

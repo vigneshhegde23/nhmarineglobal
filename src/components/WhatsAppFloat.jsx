@@ -1,6 +1,6 @@
 import React from 'react';
 
-const WHATSAPP_NUMBER = '919902452207';
+const WHATSAPP_NUMBER = '917676945797';
 const WHATSAPP_MESSAGE = encodeURIComponent(
   'Hello NH Marine Services, I would like to know more about your services.'
 );

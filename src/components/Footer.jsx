@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Mail, Phone, MapPin } from 'lucide-react';
+import { contactDetails } from '../data/contact';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -11,20 +12,12 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Company Info */}
           <div>
-            <div className="mb-5 inline-flex items-center gap-3">
+            <div className="mb-5">
               <img
-                src="/logo.png"
+                src="/footerlogo.png"
                 alt="NH Marine Logo"
-                className="h-16 w-auto object-contain drop-shadow-[0_0_18px_rgba(125,211,252,0.32)] brightness-125 contrast-110 saturate-110"
+                className="h-auto w-full max-w-[280px] object-contain"
               />
-              <div className="leading-tight">
-                <p className="text-lg font-extrabold tracking-[0.08em] text-white">
-                  NH Marine Services
-                </p>
-                <p className="text-xs uppercase tracking-[0.22em] text-blue-100">
-                  Pvt. Ltd.
-                </p>
-              </div>
             </div>
             <p className="text-sm mb-4 max-w-xs leading-6">
               Leading provider of professional marine surveying and consultancy services worldwide.
@@ -65,16 +58,6 @@ const Footer = () => {
             <h4 className="text-white font-semibold mb-4">Our Services</h4>
             <ul className="space-y-2 text-sm">
               <li>
-                <Link to="/services/draught-survey" className="hover:text-blue-400 transition-colors">
-                  Draught Survey
-                </Link>
-              </li>
-              <li>
-                <Link to="/services/bunker-survey" className="hover:text-blue-400 transition-colors">
-                  Bunker Survey
-                </Link>
-              </li>
-              <li>
                 <Link to="/services/p-and-i-services" className="hover:text-blue-400 transition-colors">
                   P&I Services
                 </Link>
@@ -108,15 +91,15 @@ const Footer = () => {
             <ul className="space-y-3 text-sm">
               <li className="flex items-start space-x-3">
                 <MapPin className="w-5 h-5 mt-0.5 flex-shrink-0" />
-                <span>Mangaluru, Dakshina Kannada, Karnataka - 575028, India</span>
+                <span>{contactDetails.address}</span>
               </li>
               <li className="flex items-center space-x-3">
                 <Phone className="w-5 h-5 flex-shrink-0" />
-                <span>+91 9902452207</span>
+                <span>{contactDetails.phone}</span>
               </li>
               <li className="flex items-center space-x-3">
                 <Mail className="w-5 h-5 flex-shrink-0" />
-                <span>nhmarineglobal@gmail.com</span>
+                <span>{contactDetails.email}</span>
               </li>
             </ul>
           </div>

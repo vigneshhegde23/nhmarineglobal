@@ -124,10 +124,10 @@ export const services = [
     overview:
       "Our marine consultancy support is centered on practical guidance, operational coordination, and helping clients approach marine requirements with clarity.",
     intro:
-      "As a growing Mangaluru-based company, we focus on responsive consultancy support and clear communication that helps clients move ahead with confidence.",
+      "As a growing marine services company, we focus on responsive consultancy support, clear communication, and service availability across South India ports while gradually expanding into other states.",
     highlights: [
       "Operational guidance with a practical approach",
-      "Responsive communication from a local team",
+      "Responsive communication from a dependable team",
       "Support tailored to the client’s immediate requirement"
     ],
     details: [
@@ -259,19 +259,22 @@ export const team = [
   {
     id: 1,
     name: "Capt. Gurudath Nayak",
-    position: "Master Mariner",
-    image: "/1st.jpg"
+    position: "Master Mariner / Marine Superintendent",
+    experience: "Over 22 years of experience across both sea-going and shore-based operations.",
+    image: "/1st.jpeg"
   },
   {
     id: 2,
     name: "Laxmish Nayak",
     position: "Navigating Officer",
+    experience: "12 years of experience at sea.",
     image: "/2nd.jpg"
   },
   {
     id: 3,
     name: "Vignesh Anand Hegde",
     position: "Marine Engineer",
+    experience: "4 years of experience at sea.",
     image: "/3rd.jpeg"
   }
 ];

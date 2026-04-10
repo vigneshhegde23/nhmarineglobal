@@ -113,22 +113,19 @@ const Home = () => {
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
-              <div className="inline-flex items-center rounded-full bg-blue-50 px-4 py-2 text-sm font-semibold text-blue-900 mb-6">
-                Built From Mangaluru
-              </div>
               <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
                 Why Choose NH Marine Services?
               </h2>
               <p className="text-lg text-gray-600 mb-10 max-w-xl leading-8">
-                We are a new marine services company starting out in Mangaluru, focused on building trust through responsive communication, careful survey work, and dependable on-ground support.
+                We provide dependable marine surveying support across ports in South India, with a strong focus on responsive communication, careful survey work, and practical on-ground assistance as we continue expanding into other states.
               </p>
               
               <div className="space-y-6">
                 {[
                   {
                     icon: MapPin,
-                    title: 'Mangaluru-Based Operations',
-                    description: 'We have started in Mangaluru and are focused on building strong local relationships before expanding further.'
+                    title: 'South India Port Coverage',
+                    description: 'We are available to offer services across ports in South India and are steadily extending our reach to clients in other states.'
                   },
                   {
                     icon: Ship,
@@ -168,23 +165,19 @@ const Home = () => {
               <div className="relative overflow-hidden rounded-[2rem] bg-gradient-to-br from-slate-950 via-blue-950 to-sky-900 p-8 md:p-10 text-white shadow-2xl">
                 <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(125,211,252,0.35),transparent_35%),radial-gradient(circle_at_bottom_left,rgba(59,130,246,0.25),transparent_30%)]" />
                 <div className="relative">
-                  <div className="inline-flex items-center rounded-full border border-white/20 bg-white/10 px-4 py-2 text-sm font-medium text-blue-100">
-                    Starting from Mangaluru, Karnataka
-                  </div>
-
                   <h3 className="mt-6 text-3xl md:text-4xl font-bold leading-tight">
-                    Building our name through reliable local service.
+                    Building trust through reliable regional service.
                   </h3>
 
                   <p className="mt-4 max-w-lg text-base md:text-lg leading-8 text-blue-100">
-                    We are focused on delivering dependable marine surveying support from Mangaluru with a hands-on, service-first approach.
+                    We are focused on delivering dependable marine surveying support across South India ports with a hands-on, service-first approach, while gradually expanding into other states.
                   </p>
 
                   <div className="mt-8 grid gap-4 sm:grid-cols-2">
                     <div className="rounded-2xl border border-white/15 bg-white/10 p-5 backdrop-blur-sm">
-                      <p className="text-sm uppercase tracking-[0.2em] text-blue-200">Base</p>
-                      <p className="mt-2 text-xl font-semibold text-white">Mangaluru</p>
-                      <p className="mt-2 text-sm leading-6 text-blue-100">Our operations are currently centered in Mangaluru as we establish our market presence.</p>
+                      <p className="text-sm uppercase tracking-[0.2em] text-blue-200">Coverage</p>
+                      <p className="mt-2 text-xl font-semibold text-white">South India Ports</p>
+                      <p className="mt-2 text-sm leading-6 text-blue-100">We are available to support clients across South India ports and are gradually expanding our presence into other states.</p>
                     </div>
 
                     <div className="rounded-2xl border border-white/15 bg-white/10 p-5 backdrop-blur-sm">

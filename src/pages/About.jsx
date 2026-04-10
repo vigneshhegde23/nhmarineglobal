@@ -16,7 +16,7 @@ const About = () => {
               About Us
             </h1>
             <p className="text-xl text-blue-100">
-              Leading the industry with professional marine surveying services
+              Marine consultancy and survey solutions built on experience, precision, and dependable execution
             </p>
           </div>
         </div>
@@ -32,19 +32,20 @@ const About = () => {
               </h2>
               <div className="space-y-4 text-lg text-gray-700">
                 <p>
-                  NH Marine is a growing marine services company committed to delivering reliable and efficient solutions to the maritime industry. While we are new to the field, our approach is built on strong technical understanding, attention to detail, and a clear focus on client requirements.                </p>
-                <p>
-                  We specialize in supporting vessel operations through coordinated service execution, timely response, and practical problem-solving. Our team works closely with clients to ensure that every task—whether routine or urgent—is handled with professionalism and accountability.
+                  We are a marine consultancy and survey service provider led by a seasoned Master Mariner and Marine Superintendent, offering end-to-end solutions across vessel inspections, surveys, and compliance.
                 </p>
                 <p>
-                  At NH Marine, we prioritize clear communication, operational transparency, and consistent service quality. Our goal is to establish long-term relationships by delivering dependable support and continuously improving with every project we undertake.
+                  Our core services include RightShip preparation and vetting support, cargo and draft surveys, bunker quantity surveys, hold cleanliness inspections, and certified magnetic compass adjustment.
+                </p>
+                <p>
+                  Backed by hands-on sailing experience and technical expertise, we ensure precision, integrity, and efficiency in every assignment.
                 </p>
               </div>
             </div>
 
             <div className="relative">
               <img
-                src="https://images.pexels.com/photos/32520879/pexels-photo-32520879.jpeg"
+                src="/about-new.jpg"
                 alt="Marine operations"
                 className="rounded-lg shadow-2xl w-full h-[500px] object-cover"
               />
@@ -134,6 +135,9 @@ const About = () => {
                   </h3>
                   <p className="mt-2 text-blue-900 font-semibold text-lg">
                     {member.position}
+                  </p>
+                  <p className="mt-3 text-sm leading-6 text-gray-600">
+                    {member.experience}
                   </p>
                 </CardContent>
               </Card>

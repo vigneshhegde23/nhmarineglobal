@@ -6,6 +6,7 @@ import { Textarea } from '../components/ui/textarea';
 import { Card, CardContent } from '../components/ui/card';
 import { toast } from 'sonner';
 import { submitWeb3Form } from '../lib/formSubmit';
+import { contactDetails } from '../data/contact';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -97,7 +98,7 @@ const Contact = () => {
                       <div>
                         <h3 className="font-semibold text-gray-900 mb-1">Address</h3>
                         <p className="text-gray-600 text-sm">
-                          Mangalore, India
+                          {contactDetails.address}
                         </p>
                       </div>
                     </div>
@@ -112,7 +113,7 @@ const Contact = () => {
                       </div>
                       <div>
                         <h3 className="font-semibold text-gray-900 mb-1">Phone</h3>
-                        <p className="text-gray-600 text-sm">+91 9902452207</p>
+                        <p className="text-gray-600 text-sm">{contactDetails.phone}</p>
                       </div>
                     </div>
                   </CardContent>
@@ -126,7 +127,7 @@ const Contact = () => {
                       </div>
                       <div>
                         <h3 className="font-semibold text-gray-900 mb-1">Email</h3>
-                        <p className="text-gray-600 text-sm">nhmarineglobal@gmail.com</p>
+                        <p className="text-gray-600 text-sm">{contactDetails.email}</p>
                       </div>
                     </div>
                   </CardContent>

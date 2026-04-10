@@ -111,7 +111,7 @@ const ServiceDetail = () => {
               <CardContent className="p-6">
                 <p className="text-sm uppercase tracking-[0.2em] text-blue-700">Location</p>
                 <p className="mt-3 text-base leading-7 text-slate-600">
-                  Managed from Mangaluru with a service-first mindset and direct client communication throughout the job.
+                  Available across ports in South India with a service-first mindset, and steadily expanding support into other states.
                 </p>
               </CardContent>
             </Card>
@@ -131,7 +131,7 @@ const ServiceDetail = () => {
                 <div className="flex flex-wrap gap-3 text-sm text-blue-100">
                   <span className="inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-2">
                     <MapPin className="h-4 w-4" />
-                    Mangaluru-based support
+                    South India port support
                   </span>
                   <span className="inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-2">
                     <PhoneCall className="h-4 w-4" />
