@@ -1,9 +1,13 @@
 const WEB3FORMS_ENDPOINT = 'https://api.web3forms.com/submit';
 const WEB3FORMS_ACCESS_KEY =
-  process.env.REACT_APP_WEB3FORMS_ACCESS_KEY || '86f85160-3be5-4f4c-981e-4946f16e2ed6';
+  process.env.REACT_APP_WEB3FORMS_ACCESS_KEY;
 const RECEIVER_EMAIL = 'nhmarineglobal@gmail.com';
 
 export const submitWeb3Form = async ({ subject, fields }) => {
+  if (!WEB3FORMS_ACCESS_KEY) {
+    throw new Error('Form service is not configured');
+  }
+
   const formData = new FormData();
   formData.append('access_key', WEB3FORMS_ACCESS_KEY);
   formData.append('subject', subject);
