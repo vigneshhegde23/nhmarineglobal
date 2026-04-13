@@ -1,70 +1,85 @@
-# Getting Started with Create React App
+# NH Marine Global Website
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is the production website for `nhmarineglobal.com`, built with Create React App and deployed as a static site.
 
-## Available Scripts
+## Local development
 
-In the project directory, you can run:
+```bash
+npm install
+npm start
+```
 
-### `npm start`
+## Production build
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+```bash
+npm run build
+```
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+The production files are generated in `build/`.
 
-### `npm test`
+## Environment variable
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Create a `.env` file from `.env.example` and set:
 
-### `npm run build`
+```bash
+REACT_APP_WEB3FORMS_ACCESS_KEY=your_web3forms_access_key_here
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+For Netlify, add the same variable in:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+`Site configuration -> Environment variables`
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Recommended launch setup
 
-### `npm run eject`
+Use Netlify for hosting and keep GoDaddy only as the domain registrar and DNS manager.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### Netlify
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+1. Push this project to GitHub.
+2. In Netlify, choose `Add new site -> Import an existing project`.
+3. Connect the GitHub repository.
+4. Use these build settings:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+```txt
+Build command: npm run build
+Publish directory: build
+```
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+5. Add `REACT_APP_WEB3FORMS_ACCESS_KEY` in Netlify environment variables.
+6. Deploy the site.
+7. Add the custom domain `nhmarineglobal.com`.
 
-## Learn More
+### GoDaddy DNS
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Point the domain to Netlify from GoDaddy DNS after Netlify gives you the target records.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Common setup:
 
-### Code Splitting
+```txt
+Type: A
+Host: @
+Value: 75.2.60.5
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+Type: CNAME
+Host: www
+Value: your-netlify-subdomain.netlify.app
+```
 
-### Analyzing the Bundle Size
+Important: use the exact values shown by Netlify in case they differ.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## Launch checklist
 
-### Making a Progressive Web App
+1. Deploy from Netlify.
+2. Add `nhmarineglobal.com` and `www.nhmarineglobal.com` in Netlify domains.
+3. Update GoDaddy DNS records to the values Netlify gives you.
+4. Wait for DNS propagation.
+5. Verify:
+   - `https://nhmarineglobal.com`
+   - `https://www.nhmarineglobal.com`
+   - `https://nhmarineglobal.com/contact`
+   - contact form submission
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+## Notes
 
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- `public/_redirects` is included so React routes work on direct page refreshes.
+- `public/sitemap.xml` and `public/robots.txt` are configured for the live domain.
