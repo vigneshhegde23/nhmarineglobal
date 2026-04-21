@@ -128,6 +128,7 @@ const About = () => {
                       src={member.image}
                       alt={member.name}
                       className="h-full w-full object-cover object-center"
+                      style={{ objectPosition: member.imagePosition || 'center' }}
                     />
                   </div>
                   <h3 className="text-2xl font-bold text-gray-900">

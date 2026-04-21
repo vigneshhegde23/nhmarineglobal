@@ -275,7 +275,8 @@ export const team = [
     name: "Vignesh Anand Hegde",
     position: "Marine Engineer",
     experience: "4 years of experience at sea.",
-    image: "/3rd.jpeg"
+    image: "/3rd.jpeg",
+    imagePosition: "center 24%"
   }
 ];
 
