@@ -1,7 +1,7 @@
 const WEB3FORMS_ENDPOINT = 'https://api.web3forms.com/submit';
 const WEB3FORMS_ACCESS_KEY =
   process.env.REACT_APP_WEB3FORMS_ACCESS_KEY;
-const RECEIVER_EMAIL = 'nhmarineglobal@gmail.com';
+const RECEIVER_EMAIL = 'ops@nhmarineglobal.com';
 
 export const submitWeb3Form = async ({ subject, fields }) => {
   if (!WEB3FORMS_ACCESS_KEY) {

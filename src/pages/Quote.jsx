@@ -308,7 +308,7 @@ const Quote = () => {
                 </form>
 
                 <p className="text-sm text-gray-600 mt-6 text-center">
-                  * Quote requests are sent directly to nhmarineglobal@gmail.com.
+                  * Quote requests are sent directly to ops@nhmarineglobal.com.
                 </p>
               </CardContent>
             </Card>
