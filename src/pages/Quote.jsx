@@ -16,6 +16,18 @@ import { toast } from 'sonner';
 import { services } from '../data/mock';
 import { submitWeb3Form } from '../lib/formSubmit';
 
+const requiredFields = [
+  ['name', 'Full Name'],
+  ['company', 'Company Name'],
+  ['email', 'Email Address'],
+  ['phone', 'Phone Number'],
+  ['service', 'Service Type'],
+  ['date', 'Preferred Date'],
+  ['vesselName', 'Vessel Name'],
+  ['vesselType', 'Vessel Type'],
+  ['location', 'Port/Location']
+];
+
 const Quote = () => {
   const location = useLocation();
   const preselectedService = location.state?.service || '';
@@ -33,6 +45,7 @@ const Quote = () => {
     additionalInfo: ''
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState(null);
 
   const handleChange = (e) => {
     setFormData({
@@ -46,11 +59,36 @@ const Quote = () => {
       ...formData,
       service: value
     });
+    setSubmitStatus(null);
+  };
+
+  const validateForm = () => {
+    const missingField = requiredFields.find(([key]) => !String(formData[key] || '').trim());
+
+    if (missingField) {
+      return `Please fill in ${missingField[1]} before submitting.`;
+    }
+
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email.trim())) {
+      return 'Please enter a valid email address.';
+    }
+
+    return '';
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    const validationMessage = validateForm();
+
+    if (validationMessage) {
+      setSubmitStatus({ type: 'error', message: validationMessage });
+      toast.error(validationMessage);
+      return;
+    }
+
     setIsSubmitting(true);
+    setSubmitStatus({ type: 'info', message: 'Sending your quote request...' });
 
     try {
       await submitWeb3Form({
@@ -69,7 +107,9 @@ const Quote = () => {
           additional_details: formData.additionalInfo || 'N/A'
         }
       });
-      toast.success('Quote request sent successfully. We will get back to you soon.');
+      const successMessage = 'Quote request sent successfully. We will get back to you soon.';
+      toast.success(successMessage);
+      setSubmitStatus({ type: 'success', message: successMessage });
       setFormData({
         name: '',
         company: '',
@@ -83,7 +123,9 @@ const Quote = () => {
         additionalInfo: ''
       });
     } catch (error) {
-      toast.error('Failed to submit quote request. Please try again.');
+      const errorMessage = error.message || 'Failed to submit quote request. Please try again.';
+      toast.error(errorMessage);
+      setSubmitStatus({ type: 'error', message: errorMessage });
     } finally {
       setIsSubmitting(false);
     }
@@ -115,7 +157,7 @@ const Quote = () => {
                   Survey Request Details
                 </h2>
                 
-                <form onSubmit={handleSubmit} className="space-y-8">
+                <form onSubmit={handleSubmit} noValidate className="space-y-8">
                   {/* Contact Information */}
                   <div>
                     <h3 className="text-xl font-semibold text-gray-900 mb-4 pb-2 border-b-2 border-blue-900">
@@ -305,6 +347,21 @@ const Quote = () => {
                   >
                     {isSubmitting ? 'Submitting Request...' : 'Submit Quote Request'}
                   </Button>
+
+                  {submitStatus && (
+                    <div
+                      role="status"
+                      className={`rounded-md border px-4 py-3 text-sm ${
+                        submitStatus.type === 'success'
+                          ? 'border-green-200 bg-green-50 text-green-800'
+                          : submitStatus.type === 'info'
+                            ? 'border-blue-200 bg-blue-50 text-blue-800'
+                            : 'border-red-200 bg-red-50 text-red-800'
+                      }`}
+                    >
+                      {submitStatus.message}
+                    </div>
+                  )}
                 </form>
 
                 <p className="text-sm text-gray-600 mt-6 text-center">
